@@ -1,8 +1,10 @@
 import os
 import dash
 from dash.dependencies import Input, Output, State
-import dash_core_components as dcc
-import dash_html_components as html
+# import dash_core_components as dcc
+# import dash_html_components as html
+from dash import dcc
+from dash import html
 # import dash_auth
 
 from common.utilities import parse_contents
@@ -11,6 +13,8 @@ from common.utilities import parse_contents
 external_stylesheets = ['https://codepen.io/chriddyp/pen/bWLwgP.css']
 app = dash.Dash(__name__, external_stylesheets=external_stylesheets)
 server = app.server
+
+PORT = 8050 # Wait for IT response - remove from the src and config in the environment
 
 # Keep this out of source code repository - save in a file or a database
 # USERNAME = os.environ['USER_NAME']
@@ -66,4 +70,4 @@ def update_output(images,list_of_names):
 
 
 if __name__ == '__main__':
-    app.run_server(debug=True)
+    app.run_server(debug=True,port=PORT)
